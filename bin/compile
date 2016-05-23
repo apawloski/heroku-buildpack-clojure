@@ -17,15 +17,15 @@ LIB_DIR=$BP_DIR/lib
 export_env_dir $ENV_DIR
 
 # Load common JVM functionality from https://github.com/heroku/heroku-buildpack-jvm-common
-JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
-mkdir -p /tmp/jvm-common
-curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
-. /tmp/jvm-common/bin/util
-. /tmp/jvm-common/bin/java
-install_java_with_overlay ${BUILD_DIR}
+# JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
+# mkdir -p /tmp/jvm-common
+# curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
+# . /tmp/jvm-common/bin/util
+# . /tmp/jvm-common/bin/java
+# install_java_with_overlay ${BUILD_DIR}
 
-# Install Node.js if needed
-detect_and_install_nodejs ${BUILD_DIR}
+# # Install Node.js if needed
+# detect_and_install_nodejs ${BUILD_DIR}
 
 # Determine Leiningen version
 if [ "$(grep ":min-lein-version[[:space:]]\+\"2" $BUILD_DIR/project.clj)" != "" ]; then
