@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+warning() {
+    echo "Warning! -----> $@"
+}
+
 cache_copy() {
   rel_dir=$1
   from_dir=$2
